@@ -1,9 +1,16 @@
 ---
-name: Emre Tufan
+name: Mustafa Emre Tufan
 title: Frontend Developer
+summary: Frontend Developer focused on learning and growing while building web applications.
 location: Konya, Turkey
-# image: /images/profile.jpg
+image: ./me.jpg
 social:
+  # - platform: Website
+  #   url: https://emretufan.dev
+  #   icon: globe
+  # - platform: Email
+  #   url: mailto:contact@emretufan.dev
+  #   icon: mail
   - platform: GitHub
     url: https://github.com/emretfn
     icon: github

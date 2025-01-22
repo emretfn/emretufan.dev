@@ -2,13 +2,21 @@ import { defineConfig, s } from 'velite'
 
 export default defineConfig({
   root: 'content',
+  output: {
+    data: '.velite',
+    assets: 'public/static',
+    base: '/static/',
+    clean: true,
+  },
   collections: {
     profile: {
       name: 'Profile',
       pattern: 'profile/**/*.md',
+      single: true,
       schema: s.object({
         name: s.string(),
         title: s.string(),
+        summary: s.string(),
         location: s.string(),
         image: s.image().optional(),
         about: s.markdown(),
