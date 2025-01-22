@@ -22,4 +22,5 @@ social:
     icon: twitter
 ---
 
-Frontend Developer focused on learning and growing while building web applications. Enthusiastic about modern web technologies and creating engaging user experiences through clean and maintainable code.
+Frontend Developer working with **React**, **Next.js** and **TypeScript**. I build responsive web applications with modern technologies while focusing on clean code and accessibility. Currently exploring web animations and performance optimization techniques.
+
