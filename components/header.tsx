@@ -26,7 +26,7 @@ export function Header() {
 
         <div className="flex gap-1">
           {profile.social?.map((social) => {
-            const Icon = iconMap[social.icon as keyof typeof iconMap];
+            const Icon = iconMap[social.icon];
             return (
               <Button
                 key={social.platform}

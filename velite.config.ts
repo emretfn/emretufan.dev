@@ -1,5 +1,7 @@
 import { defineConfig, s } from 'velite'
 
+const icon = s.enum(['github', 'linkedin', 'twitter', 'globe'])
+
 export default defineConfig({
   root: 'content',
   output: {
@@ -23,7 +25,7 @@ export default defineConfig({
         social: s.array(s.object({
           platform: s.string(),
           url: s.string().url(),
-          icon: s.string()
+          icon: icon
         }))
       })
     },
