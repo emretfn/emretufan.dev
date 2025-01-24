@@ -34,14 +34,14 @@ export default defineConfig({
       pattern: 'experience/**/*.md',
       schema: s.object({
         company: s.string(),
-        position: s.string(),
+        companyUrl: s.string().url().optional(),
+        title: s.string(),
         location: s.string(),
-        type: s.string(), // Remote, On Site, etc.
-        startDate: s.isodate(),
-        endDate: s.isodate().optional(),
-        technologies: s.array(s.string()),
-        highlights: s.array(s.string()),
-        order: s.number() // for sorting
+        startDate: s.string(),
+        endDate: s.string().optional(),
+        description: s.string(),
+        highlights: s.array(s.string()).optional(),
+        technologies: s.array(s.string()).optional()
       })
     },
     skills: {
