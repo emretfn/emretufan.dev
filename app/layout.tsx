@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
 import { Fragment } from "react";
+import { DotPattern } from "@/components/dot-pattern";
+import { cn } from "@/lib/utils";
 
 const ubuntuMono = Ubuntu_Mono({
   subsets: ["latin"],
   variable: "--font-ubuntu-mono",
   display: "swap",
-  weight: ["400","700"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +49,6 @@ const Favicon = () => {
   );
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -58,7 +59,19 @@ export default function RootLayout({
       <head>
         <Favicon />
       </head>
-      <body className={`${ubuntuMono.variable} antialiased font-mono`}>{children}</body>
+      <body className={`${ubuntuMono.variable} antialiased font-mono`}>
+        <DotPattern
+          width={16}
+          height={16}
+          cx={1}
+          cy={10}
+          className={cn(
+            "print:hidden -z-10",
+            "[mask-image:linear-gradient(to_bottom,hsl(var(--background)),transparent)]"
+          )}
+        />
+        {children}
+      </body>
     </html>
   );
 }
