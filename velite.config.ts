@@ -44,32 +44,18 @@ export default defineConfig({
         technologies: s.array(s.string()).optional()
       })
     },
-    skills: {
-      name: 'Skills',
-      pattern: 'skills/**/*.md',
+    education: {
+      name: 'Education',
+      pattern: 'education/**/*.md',
       schema: s.object({
-        category: s.string(),
-        items: s.array(s.object({
-          name: s.string(),
-          level: s.number().min(1).max(5).optional(),
-          icon: s.string().optional()
-        })),
-        order: s.number()
+        institution: s.string(),
+        institutionUrl: s.string().url().optional(),
+        degree: s.string(),
+        major: s.string(),
+        location: s.string(),
+        startDate: s.string(),
+        endDate: s.string().optional()
       })
     },
-    projects: {
-      name: 'Projects',
-      pattern: 'projects/**/*.md',
-      schema: s.object({
-        title: s.string(),
-        description: s.markdown(),
-        technologies: s.array(s.string()),
-        image: s.image().optional(),
-        url: s.string().url().optional(),
-        github: s.string().url().optional(),
-        featured: s.boolean().default(false),
-        order: s.number()
-      })
-    }
   }
 })

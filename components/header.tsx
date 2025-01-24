@@ -13,7 +13,7 @@ const iconMap = {
 
 export function Header() {
   return (
-    <div className="flex flex-col-reverse gap-8 md:flex-row md:gap-16">
+    <div className="flex flex-col-reverse gap-8 md:flex-row md:gap-16 print:flex-row">
       <div className="flex-1 space-y-4">
         <div>
           <h1 className="text-3xl font-bold">{profile.name}</h1>
