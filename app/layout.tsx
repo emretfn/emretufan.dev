@@ -4,6 +4,7 @@ import "./globals.css";
 import { Fragment } from "react";
 import { DotPattern } from "@/components/dot-pattern";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 
 const ubuntuMono = Ubuntu_Mono({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Favicon />
       </head>
       <body className={`${ubuntuMono.variable} antialiased font-mono`}>
+        <Analytics />
         <DotPattern
           width={16}
           height={16}
