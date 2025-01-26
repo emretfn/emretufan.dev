@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/.velite";
+import { BlurFade } from "./ui/blur-fade";
+import { headerAnimationDelays } from "@/constants/animations";
 
 const iconMap = {
   github: Github,
@@ -14,7 +16,7 @@ const iconMap = {
 export function Header() {
   return (
     <div className="flex flex-col-reverse gap-8 md:flex-row md:gap-16 print:flex-row">
-      <div className="flex-1 space-y-4">
+      <BlurFade delay={headerAnimationDelays.texts} className="flex-1 space-y-4">
         <div>
           <h1 className="text-3xl font-bold">{profile.name}</h1>
           <p className="max-w-md text-sm text-foreground/80">{profile.summary}</p>
@@ -28,12 +30,7 @@ export function Header() {
           {profile.social?.map((social) => {
             const Icon = iconMap[social.icon];
             return (
-              <Button
-                key={social.platform}
-                variant="outline"
-                size="icon"
-                asChild
-              >
+              <Button key={social.platform} variant="outline" size="icon" asChild>
                 <Link href={social.url} target="_blank">
                   <Icon className="h-5 w-5" />
                   <span className="sr-only">{social.platform}</span>
@@ -42,10 +39,13 @@ export function Header() {
             );
           })}
         </div>
-      </div>
+      </BlurFade>
 
       <div className="shrink-0">
-        <div className="h-32 w-32 overflow-hidden rounded-xl">
+        <BlurFade
+          delay={headerAnimationDelays.image}
+          className="h-32 w-32 overflow-hidden rounded-xl"
+        >
           {profile.image && (
             <Image
               src={profile.image.src}
@@ -57,7 +57,7 @@ export function Header() {
               priority
             />
           )}
-        </div>
+        </BlurFade>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import { education } from "@/.velite";
 import Link from "next/link";
+import { BlurFade } from "../ui/blur-fade";
+import { educationAnimationDelays } from "@/constants/animations";
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -29,7 +31,7 @@ function EducationItem({
             <span className="font-bold">{degree}</span>
             <span className="text-muted-foreground"> · </span>
             {institutionUrl ? (
-              <Link 
+              <Link
                 href={institutionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -58,10 +60,14 @@ export function Education() {
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="text-xl font-bold">Education</h2>
+      <BlurFade delay={educationAnimationDelays.title}>
+        <h2 className="text-xl font-bold">Education</h2>
+      </BlurFade>
       <div className="space-y-8">
         {sortedEducation.map((edu, i) => (
-          <EducationItem key={i} {...edu} />
+          <BlurFade key={i} delay={educationAnimationDelays.items * (i * 0.2 + 1)}>
+            <EducationItem {...edu} />
+          </BlurFade>
         ))}
       </div>
     </section>

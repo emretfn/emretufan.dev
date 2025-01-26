@@ -1,6 +1,8 @@
 import { experience } from "@/.velite";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { BlurFade } from "../ui/blur-fade";
+import { experienceAnimationDelays } from "@/constants/animations";
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -32,7 +34,7 @@ function ExperienceItem({
             <span className="font-bold">{title}</span>
             <span className="text-muted-foreground"> · </span>
             {companyUrl ? (
-              <Link 
+              <Link
                 href={companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,10 +84,14 @@ export function Experience() {
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="text-xl font-bold">Experience</h2>
+      <BlurFade delay={experienceAnimationDelays.title}>
+        <h2 className="text-xl font-bold">Experience</h2>
+      </BlurFade>
       <div className="space-y-8">
         {sortedExperience.map((job, i) => (
-          <ExperienceItem key={i} {...job} />
+          <BlurFade key={i} delay={experienceAnimationDelays.items * (i * 0.2 + 1)}>
+            <ExperienceItem {...job} />
+          </BlurFade>
         ))}
       </div>
     </section>
